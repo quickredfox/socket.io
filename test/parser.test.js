@@ -93,13 +93,11 @@ module.exports = {
   },
 
   'decoding json packet with message id and ack data': function () {
-    parser.decodePacket('4:1+::{"a":"b"}').should.eql({
-        type: 'json'
-      , id: 1
-      , ack: 'data'
-      , endpoint: ''
-      , data: { a: 'b' }
-    });
+    parser.decodePacket('4:1+::{"a":"b"}').should.eql(  { type: 'json',
+        endpoint: '',
+        id: 1,
+        ack: 'data',
+        data: { a: 'b' } });
   },
 
   'decoding an event packet': function () {
